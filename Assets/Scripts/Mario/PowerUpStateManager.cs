@@ -35,7 +35,7 @@ public class PowerUpStateManager : MonoBehaviour
             switch (item.itemType)
             {
                 case ItemType.mushroom:
-                    currentState.OnTriggerEnterMushroom(this);
+                    currentState.OnTriggerEnterMushroom(this, other.gameObject);
                     break;
             }
         }

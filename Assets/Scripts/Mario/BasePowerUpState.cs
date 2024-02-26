@@ -6,5 +6,5 @@ public abstract class BasePowerUpState
 
     public abstract void UpdateState(PowerUpStateManager stateManager);
 
-    public abstract void OnTriggerEnterMushroom(PowerUpStateManager stateManager);
+    public abstract void OnTriggerEnterMushroom(PowerUpStateManager stateManager, GameObject mushroom);
 }
