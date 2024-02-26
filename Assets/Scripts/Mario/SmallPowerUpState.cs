@@ -6,11 +6,14 @@ public class SmallPowerUpState : BasePowerUpState
 {
     public override void EnterState(PowerUpStateManager stateManager)
     {
-        throw new System.NotImplementedException();
+    }
+
+    public override void OnTriggerEnterMushroom(PowerUpStateManager stateManager)
+    {
+        stateManager.SwitchState(stateManager.bigPowerUpState);
     }
 
     public override void UpdateState(PowerUpStateManager stateManager)
     {
-        throw new System.NotImplementedException();
     }
 }
