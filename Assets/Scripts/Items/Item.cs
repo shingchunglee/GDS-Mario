@@ -5,7 +5,7 @@ public enum ItemType
   mushroom,
 }
 
-public class Item
+public class Item : MonoBehaviour
 {
   public ItemType itemType;
 }
