@@ -8,6 +8,7 @@ public class PowerUpStateManager : MonoBehaviour
     public BasePowerUpState currentState;
     public SmallPowerUpState smallPowerUpState = new SmallPowerUpState();
     public BigPowerUpState bigPowerUpState = new BigPowerUpState();
+    public StarPowerUpState starPowerUpState = new StarPowerUpState();
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class PowerUpStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        starPowerUpState.UpdateState(this);
         currentState.UpdateState(this);
     }
 
@@ -34,6 +36,9 @@ public class PowerUpStateManager : MonoBehaviour
         {
             switch (item.itemType)
             {
+                case ItemType.star:
+                    starPowerUpState.EnterState(this);
+                    break;
                 case ItemType.mushroom:
                     currentState.OnTriggerEnterMushroom(this, other.gameObject);
                     break;
