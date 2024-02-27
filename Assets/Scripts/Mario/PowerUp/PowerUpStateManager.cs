@@ -38,6 +38,7 @@ public class PowerUpStateManager : MonoBehaviour
             {
                 case ItemType.star:
                     starPowerUpState.EnterState(this);
+                    starPowerUpState.OnTriggerEnterStar(this, other.gameObject);
                     break;
                 case ItemType.mushroom:
                     currentState.OnTriggerEnterMushroom(this, other.gameObject);

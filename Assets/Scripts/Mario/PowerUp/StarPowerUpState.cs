@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class StarPowerUpState : BasePowerUpState
@@ -17,8 +18,15 @@ public class StarPowerUpState : BasePowerUpState
     stateManager.currentState.OnTriggerEnterMushroom(stateManager, mushroom);
   }
 
+  internal void OnTriggerEnterStar(PowerUpStateManager powerUpStateManager, GameObject star)
+  {
+    GameObject.Destroy(star);
+  }
+
   public override void UpdateState(PowerUpStateManager stateManager)
   {
 
   }
+
+
 }
