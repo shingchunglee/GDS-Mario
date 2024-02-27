@@ -19,7 +19,7 @@ public class EntityMovement : MonoBehaviour
     enabled = false;
   }
 
-  private void FixedUpdate()
+  public void FixedUpdate()
   {
     velocity.x = GetHorizontalVelocity();
     velocity.y += GetVerticalVelocity();
@@ -38,32 +38,32 @@ public class EntityMovement : MonoBehaviour
   }
 
 
-  private float GetHorizontalVelocity()
+  public float GetHorizontalVelocity()
   {
     return direction.x * speed;
   }
 
-  private float GetVerticalVelocity()
+  public float GetVerticalVelocity()
   {
     return Physics2D.gravity.y * Time.fixedDeltaTime;
   }
 
 
-  private bool IsHitFloor()
+  public bool IsHitFloor()
   {
     RaycastHit2D hit = Physics2D.Raycast(rigidbody.position, Vector2.down, 0.1f, layerMask);
 
     return hit.collider != null && hit.rigidbody != rigidbody;
   }
 
-  private bool IsHitWall()
+  public bool IsHitWall()
   {
     RaycastHit2D hit = Physics2D.Raycast(rigidbody.position, direction, 0.1f, layerMask);
 
     return hit.collider != null && hit.rigidbody != rigidbody;
   }
 
-  private void MovePosition()
+  public void MovePosition()
   {
     rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
   }

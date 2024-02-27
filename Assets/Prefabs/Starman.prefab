@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5945310603995348217}
   - component: {fileID: 5683217983365707253}
   - component: {fileID: 5341437883300139645}
-  - component: {fileID: 6901966358449279876}
+  - component: {fileID: 4771107495599953624}
   m_Layer: 6
   m_Name: Starman
   m_TagString: Untagged
@@ -209,7 +209,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
---- !u!114 &6901966358449279876
+--- !u!114 &4771107495599953624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,9 +218,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 522365024606346846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd32702dc25394d7b884211fc68b0575, type: 3}
+  m_Script: {fileID: 11500000, guid: a0d0b8cf367394104bb63ee82cc02467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  direction: {x: -1, y: 0}
+  direction: {x: 1, y: 0}
   velocity: {x: 0, y: 0}
