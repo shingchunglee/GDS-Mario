@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Inst;
     public GameObject MarioPlayer;
     public int score;
+    //public int coins { get; private set;}
 
     private void Awake()
     {
@@ -26,4 +27,9 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+    //public void AddCoin()
+    //{
+    //    coins++;
+    //}
 }
