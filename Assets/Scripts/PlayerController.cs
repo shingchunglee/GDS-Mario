@@ -29,8 +29,6 @@ public class PlayerController2D : MonoBehaviour
 
     public bool IsPlayerGrounded;
 
-    private bool StopPlayerMovement = false;
-
     // Start is called before the first frame update
     void Start()
     {
