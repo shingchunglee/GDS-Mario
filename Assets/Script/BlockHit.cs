@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BlockHit : MonoBehaviour
 {
+public GameObject item;
 public int maxHits = -1;
 public Sprite emptyBlock;
 
@@ -12,19 +13,27 @@ private bool animating;
     private void OnCollisionEnter2D(Collision2D bm_collision)
     //bm - block mario
     {
-        if(!animating && bm_collision.gameObject.CompareTag("Player"))
+        if(!animating && maxHits != 0 && bm_collision.gameObject.CompareTag("Player"))
+        {
         if (bm_collision.transform.DotTest(transform, Vector2.up)){
             Hit();
+        }
         }
     }
 
     private void Hit()
 {
-    SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+   SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+    spriteRenderer.enabled = true; // show if hidden
+
+
     maxHits--; // Assuming maxHits is the correct variable name
     if (maxHits == 0)
     {
         spriteRenderer.sprite = emptyBlock;
+    }
+    if (item != null) {
+        Instantiate(item, transform.position, Quaternion.identity);
     }
     StartCoroutine(Animate());
 }
