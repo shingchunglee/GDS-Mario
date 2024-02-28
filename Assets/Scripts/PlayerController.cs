@@ -20,7 +20,7 @@ public class PlayerController2D : MonoBehaviour
     private float HorizontalDrag = 0.96f;
 
     private float JumpResetTime = 0.3f;
-    public float JumpResetTimer;
+    private float JumpResetTimer;
     public float inAirMultiplier = 1f;
 
     private bool JumpButtonPressed;
@@ -28,9 +28,6 @@ public class PlayerController2D : MonoBehaviour
     private bool RunButtonPressed;
 
     public bool IsPlayerGrounded;
-
-    [Range(0, 50)]
-    public int segments = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -65,13 +62,9 @@ public class PlayerController2D : MonoBehaviour
             RunButtonPressed = false;
         }
 
-        if (Input.GetKey(KeyCode.T))    //Button used to test things 
+        if (Input.GetKeyDown(KeyCode.T))    //Button used to test things 
         {
             TestButtonPressed = true;
-        }
-        else
-        {
-            TestButtonPressed = false;
         }
 
     }
@@ -83,8 +76,6 @@ public class PlayerController2D : MonoBehaviour
         Jump();
         TestButtonT();
     }
-
-    public float CurrentDistance;
 
     void Move()
     {
@@ -280,7 +271,7 @@ public class PlayerController2D : MonoBehaviour
     // At the moment this turns off every single One Way Platform on the
     // Tilemap_OneWayPlatforms layer. Probably should only turn off the
     // one you are standing on, but this is hard to do.
-    public float platformWaitTime;
+    private float platformWaitTime;
     private IEnumerator DisableCollisionOneWay()
     {
         var colliders = new List<Collider2D>();
