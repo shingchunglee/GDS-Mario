@@ -8,8 +8,12 @@ public class PlayerController2D : MonoBehaviour
     public Rigidbody2D RB;
     public BoxCollider2D PlayerCollider;
 
-    public float MoveSpeed = 2f;
-    public float MaxMoveSpeed = 5f;
+    public KeyCode JumpButton;
+    public KeyCode RunButton;
+
+    public float MoveSpeedAcceleration = 2f;
+    public float MoveSpeedWalk = 5f;
+    public float MoveSpeedRun = 7f;
     public float JumpHeight = 5f;
 
     private float IncreasedDragThreshold = 6f;
@@ -18,14 +22,12 @@ public class PlayerController2D : MonoBehaviour
     private float JumpResetTime = 0.3f;
     public float JumpResetTimer;
     public float inAirMultiplier = 1f;
-    public float bouncedMultiplier = 0.3f;
 
-    private bool JumpButton;
-    private bool TestButton;
-
+    private bool JumpButtonPressed;
+    private bool TestButtonPressed;
+    private bool RunButtonPressed;
 
     public bool IsPlayerGrounded;
-    public bool IsPlayerOnSlippery;
 
     [Range(0, 50)]
     public int segments = 50;
@@ -45,22 +47,33 @@ public class PlayerController2D : MonoBehaviour
 
     void GetPlayerInput()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(JumpButton))
         {
-            JumpButton = true;
+            JumpButtonPressed = true;
         }
         else
         {
-            JumpButton = false;
+            JumpButtonPressed = false;
         }
+
+        if (Input.GetKey(RunButton))
+        {
+            RunButtonPressed = true;
+        }
+        else
+        {
+            RunButtonPressed = false;
+        }
+
         if (Input.GetKey(KeyCode.T))    //Button used to test things 
         {
-            TestButton = true;
+            TestButtonPressed = true;
         }
         else
         {
-            TestButton = false;
+            TestButtonPressed = false;
         }
+
     }
 
     // Update is called once per frame
@@ -75,33 +88,61 @@ public class PlayerController2D : MonoBehaviour
 
     void Move()
     {
+
         //Limits move speed by multiplying by 0 if velocity is over limit
         float maxSpeedLimiter = 1f;
-        var maxMoveSpeed = !IsPlayerGrounded ? MaxMoveSpeed * 3f : MaxMoveSpeed;
-        if (Math.Abs(RB.velocity.x) >= maxMoveSpeed)
-        {
-            maxSpeedLimiter = 0f;
-        }
+
+        //var maxMoveSpeed = !IsPlayerGrounded ? MaxMoveSpeed * 3f : MaxMoveSpeed;
+
+
+        //var moveSpeed = MoveSpeedWalk;
+
+        //if (RunButtonPressed)
+        //{
+        //    moveSpeed = MoveSpeedRun;
+        //}
+
+        //if (Math.Abs(RB.velocity.x) >= moveSpeed)
+        //{
+        //    maxSpeedLimiter = 0f;
+        //}
 
         //When Grounded, if stop pressing input, quickly slow to a halt
         if (Input.GetAxisRaw("Horizontal") == 0
             && IsPlayerGrounded
-            && !Input.GetKey(KeyCode.Space))        //This lets you hop and maintain momentum
+            && !Input.GetKey(JumpButton))        //This lets you hop and maintain momentum
         {
-            RB.velocity = new Vector2((RB.velocity.x * 1f), RB.velocity.y);
+            RB.velocity = new Vector2((RB.velocity.x * 0.87f), RB.velocity.y);
         }
         else
         {
 
             ApplyMovementCompensation();
 
-            RB.AddForce(Vector3.right * MoveSpeed *
+            RB.AddForce(Vector3.right * MoveSpeedAcceleration *
                         Input.GetAxis("Horizontal") * maxSpeedLimiter *
                         (IsPlayerGrounded ? 1 : inAirMultiplier),        //Bitwise operation
                 ForceMode2D.Impulse);
         }
 
+        ClampSpeed();
+
         ApplyDragAtLowVel();
+
+    }
+
+    void ClampSpeed()
+    {
+        if (RunButtonPressed)
+        {
+            RB.velocity = new Vector2(Mathf.Clamp(RB.velocity.x, -MoveSpeedRun,
+            MoveSpeedRun), RB.velocity.y);
+        }
+        else
+        {
+            RB.velocity = new Vector2(Mathf.Clamp(RB.velocity.x, -MoveSpeedWalk,
+            MoveSpeedWalk), RB.velocity.y);
+        }
 
     }
 
@@ -112,10 +153,7 @@ public class PlayerController2D : MonoBehaviour
     // This doesn't happen when you are on a 'slippery' surface, so you slide around more.
     private void ApplyMovementCompensation()
     {
-        if (IsPlayerOnSlippery) return;
-
         float changeCompensation = 3;
-
 
         if (Input.GetAxisRaw("Horizontal") > 0
             && RB.velocity.x < 0)
@@ -197,7 +235,7 @@ public class PlayerController2D : MonoBehaviour
             }
         }
 
-        if (JumpButton)
+        if (JumpButtonPressed)
         {
             if (IsPlayerGrounded && JumpResetTimer <= 0)
             {
@@ -310,7 +348,7 @@ public class PlayerController2D : MonoBehaviour
     /// </summary>
     void TestButtonT()
     {
-        if (TestButton)
+        if (TestButtonPressed)
         {
             // Write test button code here
             Debug.Log("'T' button pressed.");
@@ -320,7 +358,7 @@ public class PlayerController2D : MonoBehaviour
 
 
             // Write test buttone code about this
-            TestButton = false;
+            TestButtonPressed = false;
         }
     }
 
