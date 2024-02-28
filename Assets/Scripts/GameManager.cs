@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Inst;
     public GameObject MarioPlayer;
+    public int score;
 
     private void Awake()
     {

@@ -29,6 +29,8 @@ public class PlayerController2D : MonoBehaviour
 
     public bool IsPlayerGrounded;
 
+    private bool StopPlayerMovement = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -209,6 +211,9 @@ public class PlayerController2D : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") != 0) return true;
         else return false;
     }
+
+
+
     private bool JWork;
 
     void Jump()
@@ -236,6 +241,11 @@ public class PlayerController2D : MonoBehaviour
                 IsPlayerGrounded = false;
             }
         }
+    }
+
+    public void StopPlayerMovement()
+    {
+        RB.velocity = Vector3.zero;
     }
 
     void DropThroughPlatformCheck()
@@ -334,6 +344,8 @@ public class PlayerController2D : MonoBehaviour
 
 
 
+
+
     /// <summary>
     /// Triggered in game if you press 't'.
     /// </summary>
@@ -344,13 +356,14 @@ public class PlayerController2D : MonoBehaviour
             // Write test button code here
             Debug.Log("'T' button pressed.");
 
-
-
+            StopPlayerMovement();
 
 
             // Write test buttone code about this
             TestButtonPressed = false;
         }
     }
+
+   
 
 }
