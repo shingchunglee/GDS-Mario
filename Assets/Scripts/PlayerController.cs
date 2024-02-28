@@ -8,7 +8,7 @@ public class PlayerController2D : MonoBehaviour
     public Rigidbody2D RB;
     public BoxCollider2D PlayerCollider;
 
-    public float MoveSpeed = 1f;
+    public float MoveSpeed = 2f;
     public float MaxMoveSpeed = 5f;
     public float JumpHeight = 5f;
 
@@ -21,26 +21,11 @@ public class PlayerController2D : MonoBehaviour
     public float bouncedMultiplier = 0.3f;
 
     private bool JumpButton;
-    private bool InteractButton;
     private bool TestButton;
 
-    [SerializeField]
-    private Vector2 PlayerOrigin;
-
-    private float Drag;
-    private float ConnectedMassScale;
-    public float MaxDistance = 5f;      
-    private float AdjustmentSpeed;
 
     public bool IsPlayerGrounded;
     public bool IsPlayerOnSlippery;
-    public bool Bounced;
-
-
-    private Collider2D _closestCollider;
-    public Material _baseMaterial;
-
-    public Material HighlightMaterial;
 
     [Range(0, 50)]
     public int segments = 50;
@@ -50,11 +35,6 @@ public class PlayerController2D : MonoBehaviour
     {
         RB = GetComponent<Rigidbody2D>();
         PlayerCollider = GetComponent<BoxCollider2D>();
-
-        MaxDistance = 5f;
-        AdjustmentSpeed = 0.1f;
-
-        PlayerOrigin = RB.transform.position;
     }
 
     void Update()
@@ -106,13 +86,9 @@ public class PlayerController2D : MonoBehaviour
         //When Grounded, if stop pressing input, quickly slow to a halt
         if (Input.GetAxisRaw("Horizontal") == 0
             && IsPlayerGrounded
-            && !Bounced
             && !Input.GetKey(KeyCode.Space))        //This lets you hop and maintain momentum
         {
-            if (!IsPlayerOnSlippery)
-                RB.velocity = new Vector2((RB.velocity.x * 0.87f), RB.velocity.y);
-            else
-                RB.velocity = new Vector2((RB.velocity.x * 1f), RB.velocity.y);
+            RB.velocity = new Vector2((RB.velocity.x * 1f), RB.velocity.y);
         }
         else
         {
