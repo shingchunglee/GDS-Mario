@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SmallPowerUpState : DefaultPowerUpState
+public class DefaultPowerUpState : BasePowerUpState
 {
     public override void EnterState(PowerUpStateManager stateManager)
     {
@@ -12,7 +12,6 @@ public class SmallPowerUpState : DefaultPowerUpState
         GameObject mushroom
     )
     {
-        stateManager.SwitchState(stateManager.bigPowerUpState);
         GameObject.Destroy(mushroom);
     }
 
@@ -29,7 +28,10 @@ public class SmallPowerUpState : DefaultPowerUpState
             Debug.Log("Kill Goomba");
             return;
         }
-        // TODO: Kill Mario
-        Debug.Log("Kill mario");
+
+        // Turn to small mario
+
+        Debug.Log("small mario");
+        stateManager.SwitchState(stateManager.smallPowerUpState);
     }
 }

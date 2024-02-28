@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BigPowerUpState : BasePowerUpState
+public class BigPowerUpState : DefaultPowerUpState
 {
   public override void EnterState(PowerUpStateManager stateManager) { }
 

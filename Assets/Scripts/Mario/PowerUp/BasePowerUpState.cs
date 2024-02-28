@@ -7,4 +7,5 @@ public abstract class BasePowerUpState
     public abstract void UpdateState(PowerUpStateManager stateManager);
 
     public abstract void OnTriggerEnterMushroom(PowerUpStateManager stateManager, GameObject mushroom);
+    internal abstract void OnCollideGoomba(PowerUpStateManager stateManager, GameObject goomba, bool isStomping);
 }

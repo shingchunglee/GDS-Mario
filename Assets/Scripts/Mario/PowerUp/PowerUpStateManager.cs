@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -45,5 +46,38 @@ public class PowerUpStateManager : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.TryGetComponent<Enemy>(out Enemy enemy))
+        {
+            BasePowerUpState powerUpState = currentState;
+            if (starPowerUpState.isActive)
+            {
+                powerUpState = starPowerUpState;
+            }
+
+            bool isStomping = IsPlayerStomping(enemy, collision);
+
+            switch (enemy.enemyType)
+            {
+                case EnemyType.goomba:
+                    powerUpState.OnCollideGoomba(this, collision.collider.gameObject, isStomping);
+                    break;
+            }
+        }
+    }
+
+    private bool IsPlayerStomping(Enemy enemy, Collision2D collision)
+    {
+        foreach (ContactPoint2D point in collision.contacts)
+        {
+            if (point.normal.y > 0.5f)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class StarPowerUpState : BasePowerUpState
+public class StarPowerUpState : DefaultPowerUpState
 {
   public bool isActive { get; private set; } = false;
 
@@ -28,5 +28,9 @@ public class StarPowerUpState : BasePowerUpState
 
   }
 
-
+  internal override void OnCollideGoomba(PowerUpStateManager stateManager, GameObject goomba, bool isStomping)
+  {
+    // TODO: Kill Goomba
+    Debug.Log("Kill Goomba");
+  }
 }
