@@ -31,5 +31,6 @@ public class SmallPowerUpState : DefaultPowerUpState
         }
         // TODO: Kill Mario
         Debug.Log("Kill mario");
+        stateManager.deathManager.OnDeath();
     }
 }

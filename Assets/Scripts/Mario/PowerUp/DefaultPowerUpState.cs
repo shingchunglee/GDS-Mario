@@ -33,5 +33,6 @@ public class DefaultPowerUpState : BasePowerUpState
 
         Debug.Log("small mario");
         stateManager.SwitchState(stateManager.smallPowerUpState);
+        stateManager.invincibleState.EnterState(stateManager);
     }
 }

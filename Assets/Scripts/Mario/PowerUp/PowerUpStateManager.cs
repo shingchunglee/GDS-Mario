@@ -9,11 +9,18 @@ public class PowerUpStateManager : MonoBehaviour
     public BasePowerUpState currentState;
     public SmallPowerUpState smallPowerUpState = new SmallPowerUpState();
     public BigPowerUpState bigPowerUpState = new BigPowerUpState();
+
+    public InvincibleState invincibleState = new InvincibleState();
     public StarPowerUpState starPowerUpState = new StarPowerUpState();
+
+    public SpriteRenderer spriteRenderer;
+    public DeathManager deathManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        deathManager = gameObject.GetComponent<DeathManager>();
         currentState = smallPowerUpState;
         currentState.EnterState(this);
     }
@@ -23,6 +30,11 @@ public class PowerUpStateManager : MonoBehaviour
     {
         starPowerUpState.UpdateState(this);
         currentState.UpdateState(this);
+    }
+
+    public void TriggerCoroutine(IEnumerator coroutine)
+    {
+        StartCoroutine(coroutine);
     }
 
     public void SwitchState(BasePowerUpState newState)
@@ -53,6 +65,10 @@ public class PowerUpStateManager : MonoBehaviour
         if (collision.collider.TryGetComponent<Enemy>(out Enemy enemy))
         {
             BasePowerUpState powerUpState = currentState;
+            if (invincibleState.isActive)
+            {
+                powerUpState = invincibleState;
+            }
             if (starPowerUpState.isActive)
             {
                 powerUpState = starPowerUpState;
