@@ -184,6 +184,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4dac0d77355b2d489ada679a71f3143, type: 3}
+--- !u!1 &423552031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3156262560751974319, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
+  m_PrefabInstance: {fileID: 1519341028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,9 +310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3cb016917394a249c2974be54a6303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MarioPlayer: {fileID: 0}
+  MarioPlayer: {fileID: 423552031}
   score: 0
   Lives: 3
+  startPos: {x: -1.3, y: -2.1}
 --- !u!4 &629909601
 Transform:
   m_ObjectHideFlags: 0
