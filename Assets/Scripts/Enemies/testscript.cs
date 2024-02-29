@@ -8,7 +8,7 @@ public class testscript : MonoBehaviour
 {
     if (collision.gameObject.CompareTag("Player")) // Assuming your enemy has the tag "Enemy"
     {
-        GameManager.Inst.ResetLevel(); // Delay before reset, adjust as needed
+        GameManager.Inst.ResetLevelDelay(1f); // Delay before reset, adjust as needed
     }
 }
 }
