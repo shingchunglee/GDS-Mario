@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Inst;
     public GameObject MarioPlayer;
     public int score;
+    public int Lives = 3;
 
     private void Awake()
     {
@@ -25,5 +26,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void AddLife()
+    {
+        Lives++;
     }
 }
