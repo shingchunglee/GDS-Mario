@@ -13,12 +13,14 @@ public class PowerUpStateManager : MonoBehaviour
     public InvincibleState invincibleState = new InvincibleState();
     public StarPowerUpState starPowerUpState = new StarPowerUpState();
 
+    public AnimationManager animationManager;
     public SpriteRenderer spriteRenderer;
     public DeathManager deathManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        animationManager = gameObject.GetComponent<AnimationManager>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         deathManager = gameObject.GetComponent<DeathManager>();
         currentState = smallPowerUpState;

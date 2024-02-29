@@ -4,7 +4,7 @@ public class BigPowerUpState : DefaultPowerUpState
 {
   public override void EnterState(PowerUpStateManager stateManager)
   {
-
+    stateManager.animationManager.SetPowerUpState(MarioPowerUp.Big);
   }
 
   public override void OnTriggerEnterMushroom(
