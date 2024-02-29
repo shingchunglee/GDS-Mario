@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,28 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+    public void ResetLevelDelay(float delay)
+    {
+        Invoke(nameof(ResetLevel), delay);
+    }
+
+    public void ResetLevel()
+    {
+        Lives--;
+
+        if (Lives > 0) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        } else {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+{
+    // for now
+    Debug.Log("Game Over!");
+}
 
     public void AddLife()
     {
