@@ -38,11 +38,11 @@ public class GameManager : MonoBehaviour
     {
         Lives--;
 
-        if (Lives > 0) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        } else {
-            GameOver();
-        }
+       // if (Lives > 0) {
+       //     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //} else {
+          //  GameOver();
+       // }
     }
 
     private void GameOver()
