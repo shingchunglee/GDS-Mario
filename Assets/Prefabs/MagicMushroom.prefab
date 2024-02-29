@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2341618944800155462}
   - component: {fileID: 8437661753987440809}
   - component: {fileID: 937861033655394312}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: MagicMushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,18 +121,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.016870022, y: 0.005623579}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.6956522, y: 0.6956522}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.7110877, y: 0.73358107}
   m_EdgeRadius: 0
 --- !u!114 &6507078965466205568
 MonoBehaviour:
@@ -159,8 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd32702dc25394d7b884211fc68b0575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  direction: {x: -1, y: 0}
+  speed: 2
+  direction: {x: 1, y: 0}
   velocity: {x: 0, y: 0}
 --- !u!50 &8437661753987440809
 Rigidbody2D:
@@ -184,7 +184,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 448
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -223,4 +223,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.08
+  m_Radius: 0.36
