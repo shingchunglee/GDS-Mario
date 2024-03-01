@@ -9,29 +9,69 @@ public class CoinCounter : MonoBehaviour
 {
 
     public static CoinCounter instance;
-    public Text coinText;
-    public int coinCount;
-    public int currentCoins = 0;
+    public Text score;
+    private int scorevalue = 0;
 
+    void OntriggerEnter2D(Collider2D collision)
 
-     void Awake()
     {
-        instance = this;
+       if (collision.gameObject.tag == "Coin")
+        {
+            collision.gameObject.SetActive(false);
+            scorevalue += 1;
+            SetScore();
 
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void SetScore()
     {
-        //coinText.text = "COINS: " + currentCoins.ToString();
 
+        score.text = "Coins: " + scorevalue;
     }
 
-    public void IncreaseCoins(int v) {
+    //void Awake()
+    //{
+    //    instance = this;
 
-        currentCoins += v;
-        coinText.text = "COINS: " + coinCount.ToString();
+    //}
 
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //// Start is called before the first frame update
+    //void Start()
+    //{
+    //    coinText.text = "Coins: " + currentCoins.ToString();
+
+
+    //}
+
+    //// Start is called before the first frame update
+    //void Update()
+    //{
+    //    coinText.text = coinCount.ToString();
+
+    //}
+    //public void IncreaseCoins(int v) {
+
+    //    currentCoins += v;
+    //    coinText.text = "Coins:  " + coinCount.ToString();
+
+
+    //}
 }

@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 6636687903610675834}
   - component: {fileID: 7285619648634291363}
   - component: {fileID: 4279470580161185205}
+  - component: {fileID: -5814887373744737950}
   m_Layer: 0
   m_Name: PlayerMario
   m_TagString: Player
@@ -186,13 +187,9 @@ MonoBehaviour:
   MoveSpeedWalk: 5
   MoveSpeedRun: 8.5
   JumpHeight: 14
-  JumpResetTimer: 0
   inAirMultiplier: 1
   IsPlayerGrounded: 0
-  segments: 50
-  CurrentDistance: 0
   oneWayPlatColliders: []
-  platformWaitTime: 0
   GroundCheckCollider: {fileID: 0}
   currentGround: {fileID: 0}
   GroundTrigger: 0
@@ -287,3 +284,16 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 1
   m_SideArc: 1
+--- !u!114 &-5814887373744737950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156262560751974319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70144bce3d53446249869c899ec8ac9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 0}

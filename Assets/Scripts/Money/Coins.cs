@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Coins : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class Coins : MonoBehaviour
         {
 
             Destroy(gameObject);
-            CoinCounter.instance.IncreaseCoins(value);
+            //CoinCounter.instance.IncreaseCoins(value);
         }
 
     }
