@@ -23,6 +23,12 @@ public class PlayerController2D : MonoBehaviour
     private float JumpResetTimer;
     public float inAirMultiplier = 1f;
 
+    private bool isJumping;
+    public float jumpTime;
+    private float jumpTimeCounter;
+    public float jumpForceMin;
+    public float jumpForceSustained;
+
     private bool JumpButtonPressed;
     private bool TestButtonPressed;
     private bool RunButtonPressed;
@@ -231,13 +237,39 @@ public class PlayerController2D : MonoBehaviour
 
         if (JumpButtonPressed)
         {
-            if (IsPlayerGrounded && JumpResetTimer <= 0)
+            if(IsPlayerGrounded && JumpResetTimer <= 0)
             {
-                RB.velocity = new Vector3(RB.velocity.x, 0, 0);
-                RB.AddForce(Vector3.up * JumpHeight, ForceMode2D.Impulse);
-                JumpResetTimer = JumpResetTime;
+                isJumping = true;
                 IsPlayerGrounded = false;
+                JumpResetTimer = JumpResetTime;
+                jumpTimeCounter = jumpTime;
+                RB.velocity = new Vector2(RB.velocity.x, jumpForceMin);
+                Debug.Log("Jumped");
             }
+
+            if (isJumping && jumpTimeCounter > 0)
+            {
+                if (RB.velocity.y < jumpForceMin + 20)
+                {
+                    RB.velocity = new Vector2(RB.velocity.x, RB.velocity.y + jumpForceSustained);
+                    
+                }
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                
+
+                isJumping = false;
+            }
+
+            //if (IsPlayerGrounded && JumpResetTimer <= 0)
+            //{
+            //    RB.velocity = new Vector3(RB.velocity.x, 0, 0);
+            //    RB.AddForce(Vector3.up * JumpHeight, ForceMode2D.Impulse);
+            //    JumpResetTimer = JumpResetTime;
+            //    IsPlayerGrounded = false;
+            //}
         }
     }
 
