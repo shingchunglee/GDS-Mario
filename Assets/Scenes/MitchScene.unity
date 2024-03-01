@@ -648,6 +648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MarioPlayer: {fileID: 374287866}
   score: 0
+  Lives: 3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,8 +2118,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9140343087665526775, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
+      propertyPath: jumpTime
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140343087665526775, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
+      propertyPath: jumpForce
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140343087665526775, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
       propertyPath: MoveSpeedRun
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140343087665526775, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
+      propertyPath: jumpForceMin
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140343087665526775, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
+      propertyPath: jumpForceSustained
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 9140343087665526775, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
       propertyPath: GroundCheckCollider
