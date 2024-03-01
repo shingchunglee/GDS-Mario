@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -53,14 +55,14 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
 
-       
+
     }
 
     private void GameOver()
-{
-    // for now
-    Debug.Log("Game Over!");
-}
+    {
+        // for now
+        Debug.Log("Game Over!");
+    }
 
     public void AddLife()
     {
@@ -71,4 +73,18 @@ public class GameManager : MonoBehaviour
     {
         Lives--;
     }
+
+    public void AddCoins()
+    {
+        coins++;
+
+        if (coins == 100)
+        {
+            AddLife();
+            coins = 0;
+
+        }
+    }
+
 }
+
