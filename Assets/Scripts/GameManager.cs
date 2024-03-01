@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public Vector2 startPos;
     SpriteRenderer spriteRenderer;
 
+    public int coins = 0;
+
     private void Awake()
     {
         // This make sure that only one instance of the GameManager class can exist at a time.
