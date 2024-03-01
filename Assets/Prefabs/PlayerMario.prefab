@@ -91,6 +91,9 @@ GameObject:
   - component: {fileID: 6636687903610675834}
   - component: {fileID: 7285619648634291363}
   - component: {fileID: 4279470580161185205}
+  - component: {fileID: 1706321039386927860}
+  - component: {fileID: 6474292055928014610}
+  - component: {fileID: 8286532937043707940}
   m_Layer: 0
   m_Name: PlayerMario
   m_TagString: Player
@@ -155,7 +158,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -1781500868, guid: e66a6057ce8fe424691e91835379bfa0, type: 3}
   m_Color: {r: 0.7169812, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -184,15 +187,14 @@ MonoBehaviour:
   RunButton: 120
   MoveSpeedAcceleration: 2
   MoveSpeedWalk: 5
-  MoveSpeedRun: 8.5
+  MoveSpeedRun: 9
   JumpHeight: 14
-  JumpResetTimer: 0
   inAirMultiplier: 1
+  jumpTime: 0.12
+  jumpForceMin: 4
+  jumpForceSustained: 1.8
   IsPlayerGrounded: 0
-  segments: 50
-  CurrentDistance: 0
   oneWayPlatColliders: []
-  platformWaitTime: 0
   GroundCheckCollider: {fileID: 0}
   currentGround: {fileID: 0}
   GroundTrigger: 0
@@ -259,7 +261,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.73913044, y: 0.73913044}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -287,3 +289,48 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 1
   m_SideArc: 1
+--- !u!114 &1706321039386927860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156262560751974319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6469c9f27df4c1eb9b425bf9b1376a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &6474292055928014610
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156262560751974319}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 996a2ddae04c44b38af09f8facc15789, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8286532937043707940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156262560751974319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9852793d761e43298e1772346e0643e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
