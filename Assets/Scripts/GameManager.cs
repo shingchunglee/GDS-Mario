@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     public GameObject MarioPlayer;
     public int score;
     public int Lives = 3;
+    public Vector2 startPos;
+    SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -15,6 +18,7 @@ public class GameManager : MonoBehaviour
         if (Inst == null)
         {
             Inst = this;
+            spriteRenderer = MarioPlayer.GetComponent<SpriteRenderer>();
         }
         else
         {
@@ -27,6 +31,36 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+    public void ResetLevelDelay(float delay)
+    {
+        Invoke(nameof(ResetLevel), delay);
+    }
+
+    public void ResetLevel()
+    {
+        Lives--;
+        transform.position = startPos;
+        if (Lives > 0)
+        {
+            spriteRenderer.enabled = false;
+
+            MarioPlayer.transform.position = startPos;
+            spriteRenderer.enabled = true;
+        }
+        else
+        {
+            GameOver();
+        }
+
+       
+    }
+
+    private void GameOver()
+{
+    // for now
+    Debug.Log("Game Over!");
+}
 
     public void AddLife()
     {
