@@ -32,6 +32,7 @@ public class PlayerController2D : MonoBehaviour
     private bool JumpButtonPressed;
     private bool TestButtonPressed;
     private bool RunButtonPressed;
+    private bool PlayerMovementStopped;
 
     public bool IsPlayerGrounded;
 
@@ -184,8 +185,6 @@ public class PlayerController2D : MonoBehaviour
         }
     }
 
-
-
     /// <summary>
     /// Applies horizontal drag to the player when they are traveling at low
     /// horizontal velocity and not pressing an arrow key. This is so the
@@ -216,8 +215,6 @@ public class PlayerController2D : MonoBehaviour
         else return false;
     }
 
-
-
     private bool JWork;
 
     void Jump()
@@ -244,7 +241,6 @@ public class PlayerController2D : MonoBehaviour
                 JumpResetTimer = JumpResetTime;
                 jumpTimeCounter = jumpTime;
                 RB.velocity = new Vector2(RB.velocity.x, jumpForceMin);
-                Debug.Log("Jumped");
             }
 
             if (isJumping && jumpTimeCounter > 0)
@@ -271,11 +267,33 @@ public class PlayerController2D : MonoBehaviour
             //    IsPlayerGrounded = false;
             //}
         }
+        else if (!JumpButtonPressed)
+        {
+            isJumping = false;
+        }
     }
 
     public void StopPlayerMovement()
     {
-        RB.velocity = Vector3.zero;
+        PlayerMovementStopped = true;
+        RB.constraints = RigidbodyConstraints2D.FreezeAll;
+        StartCoroutine(MovementStopCount());
+    }
+
+    IEnumerator MovementStopCount()
+    {
+        yield return new WaitForSeconds(0.2f);
+        PlayerMovementStopped = false;
+        RB.constraints = RigidbodyConstraints2D.FreezePositionX;
+        StartCoroutine(MovementUnStopCount());
+
+    }
+
+    IEnumerator MovementUnStopCount()
+    {
+        yield return new WaitForSeconds(5f);
+        RB.constraints = RigidbodyConstraints2D.None;
+
     }
 
     void DropThroughPlatformCheck()
@@ -370,11 +388,6 @@ public class PlayerController2D : MonoBehaviour
             IsPlayerGrounded = false;
 
     }
-
-
-
-
-
 
     /// <summary>
     /// Triggered in game if you press 't'.
