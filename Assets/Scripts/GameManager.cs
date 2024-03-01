@@ -1,13 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Inst;
     public GameObject MarioPlayer;
     public int score;
-    //public int coins { get; private set;}
+    public int coins; 
+   
+    private int lives;
+
+    
+    public static object Instance { get; internal set; }
+
+    private void Start()
+    {
+        NewGame();
+    }
+    private void NewGame()
+    {
+        lives = 3;
+        coins = 0;
+
+    }
+  
 
     private void Awake()
     {
@@ -28,8 +47,23 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //public void AddCoin()
-    //{
-    //    coins++;
-    //}
+    public void AddCoins()
+    {
+        coins++;
+
+        if (coins == 100)
+        {
+            AddLife();
+            coins = 0;
+
+        }
+    }
+
+    public void AddLife()
+    {
+        GameManager.Inst.AddLife();
+        lives++;
+
+    }
 }
+

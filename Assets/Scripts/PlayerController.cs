@@ -29,6 +29,8 @@ public class PlayerController2D : MonoBehaviour
 
     public bool IsPlayerGrounded;
 
+    public CoinCounter cc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -362,6 +364,16 @@ public class PlayerController2D : MonoBehaviour
         }
     }
 
-   
+    void OnTriggerEnter2D(Collider other)
+    {
+        if (other.gameObject.CompareTag("COINS"))
+        {
+            Destroy(other.gameObject);
+            cc.coinCount++;
+
+
+        }
+    }
+
 
 }
