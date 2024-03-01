@@ -94,7 +94,8 @@ GameObject:
   - component: {fileID: 1706321039386927860}
   - component: {fileID: 6474292055928014610}
   - component: {fileID: 8286532937043707940}
-  m_Layer: 0
+  - component: {fileID: 6896375584012159616}
+  m_Layer: 3
   m_Name: PlayerMario
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -334,3 +335,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9852793d761e43298e1772346e0643e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6896375584012159616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156262560751974319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67dbfbcb3765946d9a8410e27357968b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationManager: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  deathManager: {fileID: 0}
