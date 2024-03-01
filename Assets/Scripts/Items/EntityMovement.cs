@@ -51,14 +51,14 @@ public class EntityMovement : MonoBehaviour
 
   public bool IsHitFloor()
   {
-    RaycastHit2D hit = Physics2D.Raycast(rigidbody.position, Vector2.down, 0.1f, layerMask);
+    RaycastHit2D hit = Physics2D.Raycast(rigidbody.position, Vector2.down, 0.37f, layerMask);
 
     return hit.collider != null && hit.rigidbody != rigidbody;
   }
 
   public bool IsHitWall()
   {
-    RaycastHit2D hit = Physics2D.Raycast(rigidbody.position, direction, 0.1f, layerMask);
+    RaycastHit2D hit = Physics2D.Raycast(rigidbody.position, direction, 0.37f, layerMask);
 
     return hit.collider != null && hit.rigidbody != rigidbody;
   }

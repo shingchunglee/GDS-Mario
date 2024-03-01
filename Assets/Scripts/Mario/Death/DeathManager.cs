@@ -7,6 +7,7 @@ public class DeathManager : MonoBehaviour
     private Vector2 velocity;
     private new Rigidbody2D rigidbody;
     private new Collider2D collider2D;
+    private AnimationManager animationManager;
 
     private float jumpHeight = 4f;
     private float jumpTime = 1f;
@@ -16,6 +17,7 @@ public class DeathManager : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         collider2D = GetComponent<BoxCollider2D>();
+        animationManager = GetComponent<AnimationManager>();
         enabled = false;
     }
 
@@ -46,6 +48,7 @@ public class DeathManager : MonoBehaviour
     {
         enabled = true;
         // TODO: Lives -1
+        GameManager.Inst.LoseLife();
 
         // TODO: Take Over Movement
         // deactivate movement component 
@@ -57,7 +60,7 @@ public class DeathManager : MonoBehaviour
         collider2D.enabled = false;
 
         // TODO: Death Animation
-
+        animationManager.SetPowerUpState(MarioPowerUp.Dead);
     }
 
     public void OnRespawn()
