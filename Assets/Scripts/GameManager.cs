@@ -32,4 +32,9 @@ public class GameManager : MonoBehaviour
     {
         Lives++;
     }
+
+    public void LoseLife()
+    {
+        Lives--;
+    }
 }

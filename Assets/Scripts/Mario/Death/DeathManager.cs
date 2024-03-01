@@ -7,7 +7,7 @@ public class DeathManager : MonoBehaviour
     private Vector2 velocity;
     private new Rigidbody2D rigidbody;
     private new Collider2D collider2D;
-    private new AnimationManager animationManager;
+    private AnimationManager animationManager;
 
     private float jumpHeight = 4f;
     private float jumpTime = 1f;
@@ -48,6 +48,7 @@ public class DeathManager : MonoBehaviour
     {
         enabled = true;
         // TODO: Lives -1
+        GameManager.Inst.LoseLife();
 
         // TODO: Take Over Movement
         // deactivate movement component 
