@@ -22,10 +22,12 @@ public class Goomba_Stomp : MonoBehaviour
 
     public void Flatten()
     {
-        GetComponent<Collider2D>().enabled = false;
+        // GetComponent<Collider2D>().enabled = false;
         GetComponent<Enemy_Movement>().enabled = false;
         GetComponent<Goomba_AnimatedSprite>().enabled = false;
         GetComponent<SpriteRenderer>().sprite = flatSprite;
+        GetComponent<BoxCollider2D>().enabled = false;
+
         Destroy(gameObject, 0.5f);
     }
 

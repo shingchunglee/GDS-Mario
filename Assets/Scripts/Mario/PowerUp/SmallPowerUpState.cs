@@ -28,6 +28,8 @@ public class SmallPowerUpState : DefaultPowerUpState
             // TODO: Kill Goomba
             Debug.Log("Kill Goomba");
             goomba.GetComponent<Goomba_Stomp>().Flatten();
+            Rigidbody2D rigidbody2D = stateManager.gameObject.GetComponent<Rigidbody2D>();
+            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 3f);
             return;
         }
         // TODO: Kill Mario

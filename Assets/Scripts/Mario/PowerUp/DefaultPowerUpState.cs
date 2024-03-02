@@ -26,6 +26,8 @@ public class DefaultPowerUpState : BasePowerUpState
         {
             // TODO: Kill Goomba
             goomba.GetComponent<Goomba_Stomp>().Flatten();
+            Rigidbody2D rigidbody2D = stateManager.gameObject.GetComponent<Rigidbody2D>();
+            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 3f);
             Debug.Log("Kill Goomba");
             return;
         }
@@ -43,7 +45,7 @@ public class DefaultPowerUpState : BasePowerUpState
         {
             koopa.GetComponent<Koopa_Shell>().onStomp();
             Rigidbody2D rigidbody2D = stateManager.gameObject.GetComponent<Rigidbody2D>();
-            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 5f);
+            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 3f);
             return;
         }
 
