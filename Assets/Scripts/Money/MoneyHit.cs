@@ -25,7 +25,7 @@ public class MoneyHit : MonoBehaviour
         yield return Move(restingPosition, animatedPosition);
         yield return Move(animatedPosition, restingPosition);
 
-        //Destroy(gameObject);
+        Destroy(gameObject);
 
 
     }

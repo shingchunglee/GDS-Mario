@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     public int coins = 0;
+    [SerializeField] private Text coinText;
+   
+   public GameObject ResetScreen;
+   public GameObject gameOver;
+   public Text lifeText;
 
     private void Awake()
     {
@@ -28,6 +33,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+         ResetScreen.SetActive(false);
+         gameOver.SetActive(false);
     }
 
     // Update is called once per frame
@@ -38,32 +45,61 @@ public class GameManager : MonoBehaviour
 
     public void ResetLevelDelay(float delay)
     {
-        Invoke(nameof(ResetLevel), delay);
+        StartCoroutine(ResetLevelCoroutine(delay));
     }
 
-    public void ResetLevel()
+    private IEnumerator ResetLevelCoroutine(float delay)
     {
+       
         Lives--;
-        transform.position = startPos;
+
+        lifeText.text = Lives.ToString();
+
+        
+
         if (Lives > 0)
         {
+   
             spriteRenderer.enabled = false;
+
+            ResetScreen.SetActive(true);
+            yield return new WaitForSeconds(2f);
+            ResetScreen.SetActive(false);
+
 
             MarioPlayer.transform.position = startPos;
             spriteRenderer.enabled = true;
         }
         else
         {
+            
             GameOver();
         }
-
-
     }
 
-    private void GameOver()
+    
+       private void GameOver()
     {
-        // for now
-        Debug.Log("Game Over!");
+        
+        gameOver.SetActive(true);
+        StartCoroutine(GameOverCoroutine());
+    }
+
+    private IEnumerator GameOverCoroutine()
+    {
+        
+        yield return new WaitForSeconds(3f);
+        //gameOver.SetActive(false);
+
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int previousSceneIndex = currentSceneIndex - 1;
+        
+        
+        if (previousSceneIndex >= 0)
+        {
+            SceneManager.LoadScene(previousSceneIndex);
+        }
+        
     }
 
     public void AddLife()
@@ -86,6 +122,8 @@ public class GameManager : MonoBehaviour
             coins = 0;
 
         }
+
+        coinText.text = "coins:" + coins;
     }
 
 }
