@@ -4,46 +4,17 @@ using UnityEngine;
 
 public class FlagAnimation : MonoBehaviour
 {
-    public Transform flag;
-    public Transform poleBottom;
-    public Transform castle;
-    public float speed = 6f;
-    public int nextWorld = 1;
-    public int nextStage = 1;
+    private Animator flagDown; 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Start()
     {
-        if (other.CompareTag("Player"))
-        {
-            StartCoroutine(MoveTo(flag, poleBottom.position));
-            StartCoroutine(LevelCompleteSequence(other.transform));
-        }
+       flagDown = GetComponent<Animator>();
     }
-
-    private IEnumerator LevelCompleteSequence(Transform player)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        player.GetComponent<PlayerController2D>().enabled = false;
-        
-        yield return MoveTo(player, poleBottom.position);
-        yield return MoveTo(player, player.position + Vector3.right);
-        yield return MoveTo(player, player.position + Vector3.right + Vector3.down);
-        yield return MoveTo(player, castle.position);
-
-        player.gameObject.SetActive(false);
-
-        yield return new WaitForSeconds(2f);
-
-        //GameManager.Instance.LoadLevel(nextWorld, nextStage);
-    }
-
-    private IEnumerator MoveTo(Transform subject, Vector3 position)
-    {
-        while (Vector3.Distance(subject.position, position) > 0.115f)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            subject.position = Vector3.MoveTowards(subject.position, position, speed * Time.deltaTime);
-            yield return null;
+            flagDown.enabled = true;
         }
-
-        subject.position = position;
     }
 }
