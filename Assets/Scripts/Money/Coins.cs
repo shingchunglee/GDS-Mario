@@ -23,6 +23,8 @@ public class Coins : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            //soundManager.Inst.COINsfx();
+
 
             Destroy(gameObject);
             //CoinCounter.instance.IncreaseCoins(value);

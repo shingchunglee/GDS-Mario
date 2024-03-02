@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 public class MoneyHit : MonoBehaviour
 {
+    private AudioSource audioSource;
     public static GameManager Inst;
+    
 
     // Start is called before the first frame update
     private  void Start()
     {
-        GameManager.Inst.AddCoins();
-        StartCoroutine(Animate());
+        audioSource = GetComponent<AudioSource>();
 
+        GameManager.Inst.AddCoins();
+        audioSource.Play();
+        StartCoroutine(Animate());
         
+
     }
 
     private IEnumerator Animate()
