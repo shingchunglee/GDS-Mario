@@ -9,7 +9,7 @@ public class DeathManager : MonoBehaviour
     private new Collider2D collider2D;
     private AnimationManager animationManager;
 
-    private float jumpHeight = 4f;
+    private float jumpHeight = 8f;
     private float jumpTime = 1f;
     private float jumpForce => jumpHeight / jumpTime;
     // Start is called before the first frame update
@@ -51,7 +51,7 @@ public class DeathManager : MonoBehaviour
         GameManager.Inst.LoseLife();
 
         // TODO: Take Over Movement
-        // deactivate movement component 
+        gameObject.GetComponent<PlayerController2D>().StopPlayerMovement();
 
         // Jump
         Jump();
@@ -61,6 +61,8 @@ public class DeathManager : MonoBehaviour
 
         // TODO: Death Animation
         animationManager.SetPowerUpState(MarioPowerUp.Dead);
+
+        GameManager.Inst.ResetLevelDelay(3f);
     }
 
     public void OnRespawn()
