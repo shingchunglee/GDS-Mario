@@ -65,5 +65,12 @@ public class StarPowerUpState : DefaultPowerUpState
   {
     // TODO: Kill Goomba
     Debug.Log("Kill Goomba");
+    goomba.GetComponent<EnemyStarDeath>().onStarDeath();
+  }
+
+  internal override void OnCollideKoopa(PowerUpStateManager stateManager, GameObject koopa, bool isStomping)
+  {
+    // TODO: Kill Goomba
+    koopa.GetComponent<EnemyStarDeath>().onStarDeath();
   }
 }

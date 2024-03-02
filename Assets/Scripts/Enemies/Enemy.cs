@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum EnemyType
 {
-  goomba,
+  goomba, koopa
 }
 
 public class Enemy : MonoBehaviour

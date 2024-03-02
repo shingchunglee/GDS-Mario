@@ -27,8 +27,24 @@ public class SmallPowerUpState : DefaultPowerUpState
         {
             // TODO: Kill Goomba
             Debug.Log("Kill Goomba");
+            goomba.GetComponent<Goomba_Stomp>().Flatten();
             return;
         }
+        // TODO: Kill Mario
+        Debug.Log("Kill mario");
+        stateManager.deathManager.OnDeath();
+    }
+
+    internal override void OnCollideKoopa(PowerUpStateManager stateManager, GameObject koopa, bool isStomping)
+    {
+        if (isStomping)
+        {
+            koopa.GetComponent<Koopa_Shell>().onStomp();
+            Rigidbody2D rigidbody2D = stateManager.gameObject.GetComponent<Rigidbody2D>();
+            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 5f);
+            return;
+        }
+
         // TODO: Kill Mario
         Debug.Log("Kill mario");
         stateManager.deathManager.OnDeath();

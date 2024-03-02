@@ -83,6 +83,10 @@ public class PowerUpStateManager : MonoBehaviour
                 case EnemyType.goomba:
                     powerUpState.OnCollideGoomba(this, collision.collider.gameObject, isStomping);
                     break;
+
+                case EnemyType.koopa:
+                    powerUpState.OnCollideKoopa(this, collision.collider.gameObject, isStomping);
+                    break;
             }
         }
     }
