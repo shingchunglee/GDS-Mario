@@ -8050,7 +8050,7 @@ PrefabInstance:
     - target: {fileID: 5831175148428737354, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1141207463333114513, guid: 6525ed58054564fd497e070d3b60ff7d, type: 3}
     - target: {fileID: 5831175148428737354, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
       propertyPath: maxHits
       value: 1
