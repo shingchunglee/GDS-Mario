@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Inst;
     public GameObject MarioPlayer;
     public int score;
-    public int Lives = 3;
+    public int Lives;
     public Vector2 startPos;
     SpriteRenderer spriteRenderer;
 
@@ -31,15 +31,36 @@ public class GameManager : MonoBehaviour
         {
             Inst = this;
             spriteRenderer = MarioPlayer.GetComponent<SpriteRenderer>();
+
+            LoadSceneSetup();
         }
         else
         {
             Destroy(this);
         }
-         ResetScreen.SetActive(false);
+    }
+
+    /// <summary>
+    /// Put all start of game setup tasks in here.
+    /// </summary>
+    private void LoadSceneSetup()
+    {
+        ResetScreen.SetActive(false);
         gameOver.SetActive(false);
 
         QualitySettings.vSyncCount = 0; Application.targetFrameRate = targetFrameRate;
+
+        if (PlayerPrefs.HasKey("Lives"))
+        {
+            Lives = PlayerPrefs.GetInt("Lives");
+            Debug.Log($"Lives = {Lives}");
+        }
+        else
+        {
+            Lives = 3;
+            Debug.Log($"Lives not saved under PlayerPrefs, so Lives = {Lives}");
+        }
+
     }
 
     // Update is called once per frame
@@ -60,26 +81,30 @@ public class GameManager : MonoBehaviour
 
         lifeText.text = Lives.ToString();
 
-        
+        PlayerPrefs.SetInt("Lives", Lives);
 
         if (Lives > 0)
         {
-   
+            yield return new WaitForSeconds(3f);
+
             spriteRenderer.enabled = false;
 
             ResetScreen.SetActive(true);
             yield return new WaitForSeconds(2f);
-            ResetScreen.SetActive(false);
 
+            ReloadLevel();
 
-            MarioPlayer.transform.position = startPos;
-            spriteRenderer.enabled = true;
         }
         else
         {
             
             GameOver();
         }
+    }
+
+    private void ReloadLevel()
+    {
+        SceneManager.LoadScene("Stage 01-Sunny");
     }
 
     

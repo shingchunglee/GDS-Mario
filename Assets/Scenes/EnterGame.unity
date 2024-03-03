@@ -320,6 +320,7 @@ MonoBehaviour:
   panel: {fileID: 1100345760}
   delay: 3
   gameStartIndex: 1
+  startingLives: 3
 --- !u!4 &2052404387
 Transform:
   m_ObjectHideFlags: 0
@@ -343,6 +344,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 546802552403308829, guid: 6ecfe974129995042aab30211423efa8, type: 3}
+      propertyPath: m_text
+      value: "arrow keys - walk     z key - jump\nesc - quit                      
+        x - run\t"
+      objectReference: {fileID: 0}
     - target: {fileID: 2504403598468670478, guid: 6ecfe974129995042aab30211423efa8, type: 3}
       propertyPath: m_Camera
       value: 
