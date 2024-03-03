@@ -18,11 +18,14 @@ public class GameManager : MonoBehaviour
     public int coins = 0;
     [SerializeField] private Text coinText;
    
-   public GameObject ResetScreen;
-   public GameObject gameOver;
-   public Text lifeText;
+    public GameObject ResetScreen;
+    public GameObject gameOverScreen;
+    public Text lifeText;
 
     public int targetFrameRate = 30;
+
+    public AudioSource Music_Background;
+    public AudioSource SFX_MarioDeath;
 
     private void Awake()
     {
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour
     private void LoadSceneSetup()
     {
         ResetScreen.SetActive(false);
-        gameOver.SetActive(false);
+        gameOverScreen.SetActive(false);
 
         QualitySettings.vSyncCount = 0; Application.targetFrameRate = targetFrameRate;
 
@@ -83,21 +86,19 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt("Lives", Lives);
 
+        yield return new WaitForSeconds(3f);
+
         if (Lives > 0)
         {
-            yield return new WaitForSeconds(3f);
-
             spriteRenderer.enabled = false;
 
             ResetScreen.SetActive(true);
             yield return new WaitForSeconds(2f);
 
             ReloadLevel();
-
         }
         else
         {
-            
             GameOver();
         }
     }
@@ -108,10 +109,9 @@ public class GameManager : MonoBehaviour
     }
 
     
-       private void GameOver()
+    private void GameOver()
     {
-        
-        gameOver.SetActive(true);
+        gameOverScreen.SetActive(true);
         StartCoroutine(GameOverCoroutine());
     }
 
@@ -130,6 +130,16 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(previousSceneIndex);
         }
         
+    }
+
+    public void PauseMusic()
+    {
+        Music_Background.Pause();
+    }
+
+    public void PlayDeathSound()
+    {
+        SFX_MarioDeath.Play();
     }
 
     public void AddLife()

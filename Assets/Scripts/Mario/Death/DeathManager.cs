@@ -44,8 +44,19 @@ public class DeathManager : MonoBehaviour
         rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "KillBox")
+        {
+            OnDeath();
+        }
+    }
+
     public void OnDeath()
     {
+        GameManager.Inst.PauseMusic();
+        GameManager.Inst.PlayDeathSound();
+
         enabled = true;
         // TODO: Lives -1
         // GameManager.Inst.LoseLife();

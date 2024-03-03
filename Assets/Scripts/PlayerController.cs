@@ -80,6 +80,11 @@ public class PlayerController2D : MonoBehaviour
             TestButtonPressed = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuitGame();
+        }
+
     }
 
     // Update is called once per frame
@@ -406,6 +411,12 @@ public class PlayerController2D : MonoBehaviour
             IsPlayerGrounded = false;
         }
 
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Game Quit. Only works when game is built.");
+        Application.Quit();
     }
 
     /// <summary>

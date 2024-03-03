@@ -320,7 +320,6 @@ MonoBehaviour:
   panel: {fileID: 1100345760}
   delay: 3
   gameStartIndex: 1
-  startingLives: 3
 --- !u!4 &2052404387
 Transform:
   m_ObjectHideFlags: 0
@@ -346,8 +345,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 546802552403308829, guid: 6ecfe974129995042aab30211423efa8, type: 3}
       propertyPath: m_text
-      value: "arrow keys - walk     z key - jump\nesc - quit                      
-        x - run\t"
+      value: "arrow keys - walk     z key - jump\nesc key - quit                x
+        key - run\t"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391930880052284435, guid: 6ecfe974129995042aab30211423efa8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 29.8379
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391930880052284435, guid: 6ecfe974129995042aab30211423efa8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20.5875
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391930880052284435, guid: 6ecfe974129995042aab30211423efa8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391930880052284435, guid: 6ecfe974129995042aab30211423efa8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2504403598468670478, guid: 6ecfe974129995042aab30211423efa8, type: 3}
       propertyPath: m_Camera
@@ -431,6 +446,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2614967716980295226, guid: 6ecfe974129995042aab30211423efa8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368773592921354125, guid: 6ecfe974129995042aab30211423efa8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4718015154169474502, guid: 6ecfe974129995042aab30211423efa8, type: 3}
