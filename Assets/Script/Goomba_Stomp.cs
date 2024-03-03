@@ -5,6 +5,7 @@ using UnityEngine;
 public class Goomba_Stomp : MonoBehaviour
 {
     public Sprite flatSprite;
+    public bool isFlat;
 
     // private void OnCollisionEnter2D(Collision2D gm_collision)
     // //gm_collision between goomba and mario
@@ -22,6 +23,7 @@ public class Goomba_Stomp : MonoBehaviour
 
     public void Flatten()
     {
+        isFlat = true;
         // GetComponent<Collider2D>().enabled = false;
         GetComponent<Enemy_Movement>().enabled = false;
         GetComponent<Goomba_AnimatedSprite>().enabled = false;
