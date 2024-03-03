@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
    public GameObject gameOver;
    public Text lifeText;
 
+    public int targetFrameRate = 30;
+
     private void Awake()
     {
         // This make sure that only one instance of the GameManager class can exist at a time.
@@ -34,13 +37,15 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
          ResetScreen.SetActive(false);
-         gameOver.SetActive(false);
+        gameOver.SetActive(false);
+
+        QualitySettings.vSyncCount = 0; Application.targetFrameRate = targetFrameRate;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Application.targetFrameRate != targetFrameRate) Application.targetFrameRate = targetFrameRate;
     }
 
     public void ResetLevelDelay(float delay)
@@ -127,4 +132,3 @@ public class GameManager : MonoBehaviour
     }
 
 }
-

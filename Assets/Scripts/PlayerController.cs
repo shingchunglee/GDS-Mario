@@ -90,20 +90,6 @@ public class PlayerController2D : MonoBehaviour
         //Limits move speed by multiplying by 0 if velocity is over limit
         float maxSpeedLimiter = 1f;
 
-        //var maxMoveSpeed = !IsPlayerGrounded ? MaxMoveSpeed * 3f : MaxMoveSpeed;
-
-
-        //var moveSpeed = MoveSpeedWalk;
-
-        //if (RunButtonPressed)
-        //{
-        //    moveSpeed = MoveSpeedRun;
-        //}
-
-        //if (Math.Abs(RB.velocity.x) >= moveSpeed)
-        //{
-        //    maxSpeedLimiter = 0f;
-        //}
 
         //When Grounded, if stop pressing input, quickly slow to a halt
         if (Input.GetAxisRaw("Horizontal") == 0
@@ -234,6 +220,7 @@ public class PlayerController2D : MonoBehaviour
 
         if (JumpButtonPressed)
         {
+            // When jump is pressed, always apply a minimum jump force
             if(IsPlayerGrounded && JumpResetTimer <= 0)
             {
                 isJumping = true;
@@ -243,6 +230,7 @@ public class PlayerController2D : MonoBehaviour
                 RB.velocity = new Vector2(RB.velocity.x, jumpForceMin);
             }
 
+            // If Jump is held, go higher
             if (isJumping && jumpTimeCounter > 0)
             {
                 if (RB.velocity.y < jumpForceMin + 20)
@@ -254,18 +242,8 @@ public class PlayerController2D : MonoBehaviour
             }
             else
             {
-                
-
                 isJumping = false;
             }
-
-            //if (IsPlayerGrounded && JumpResetTimer <= 0)
-            //{
-            //    RB.velocity = new Vector3(RB.velocity.x, 0, 0);
-            //    RB.AddForce(Vector3.up * JumpHeight, ForceMode2D.Impulse);
-            //    JumpResetTimer = JumpResetTime;
-            //    IsPlayerGrounded = false;
-            //}
         }
         else if (!JumpButtonPressed)
         {
