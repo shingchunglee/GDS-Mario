@@ -6496,24 +6496,12 @@ PrefabInstance:
       value: PlayerMario
       objectReference: {fileID: 0}
     - target: {fileID: 8371216688568173419, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.02576305
-      objectReference: {fileID: 0}
-    - target: {fileID: 8371216688568173419, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.03260733
-      objectReference: {fileID: 0}
-    - target: {fileID: 8371216688568173419, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.03260733
-      objectReference: {fileID: 0}
-    - target: {fileID: 8371216688568173419, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3929851
+      value: -3.07
       objectReference: {fileID: 0}
     - target: {fileID: 8371216688568173419, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.72
+      value: -5.22
       objectReference: {fileID: 0}
     - target: {fileID: 8371216688568173419, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6725,6 +6713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bricks (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5831175148428737354, guid: 40ceab5876aface43b3c17d61c3cf0a7, type: 3}
+      propertyPath: emptyBlock
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c057401fbf74454fa3032deae7f0a61, type: 3}
     - target: {fileID: 6838544509304160822, guid: 40ceab5876aface43b3c17d61c3cf0a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 77.67
@@ -17534,6 +17526,7 @@ GameObject:
   - component: {fileID: 1854633988}
   - component: {fileID: 1854633987}
   - component: {fileID: 1854633990}
+  - component: {fileID: 1854633991}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -17548,7 +17541,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854633986}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1854633988
 Camera:
   m_ObjectHideFlags: 0
@@ -17711,6 +17704,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1854633991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854633986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7370e1dbad2741f082c18c54d7047cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1862459845
 PrefabInstance:
   m_ObjectHideFlags: 0

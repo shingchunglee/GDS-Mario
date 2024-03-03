@@ -48,7 +48,7 @@ public class DeathManager : MonoBehaviour
     {
         enabled = true;
         // TODO: Lives -1
-        GameManager.Inst.LoseLife();
+        // GameManager.Inst.LoseLife();
 
         // TODO: Take Over Movement
         gameObject.GetComponent<PlayerController2D>().StopPlayerMovement();

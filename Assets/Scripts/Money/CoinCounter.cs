@@ -15,7 +15,7 @@ public class CoinCounter : MonoBehaviour
     void OntriggerEnter2D(Collider2D collision)
 
     {
-       if (collision.gameObject.tag == "Coin")
+        if (collision.gameObject.tag == "Coin")
         {
             collision.gameObject.SetActive(false);
             scorevalue += 1;
@@ -27,7 +27,7 @@ public class CoinCounter : MonoBehaviour
     void SetScore()
     {
 
-        score.text = "Coins: " + scorevalue;
+        score.text = "Coins:  " + scorevalue;
     }
 
     //void Awake()
