@@ -8,6 +8,8 @@ public class PlayerController2D : MonoBehaviour
     public Rigidbody2D RB;
     public BoxCollider2D PlayerCollider;
 
+    public AnimationManager animationManager;
+
     public KeyCode JumpButton;
     public KeyCode RunButton;
 
@@ -34,6 +36,9 @@ public class PlayerController2D : MonoBehaviour
     private bool RunButtonPressed;
     private bool PlayerMovementStopped;
 
+    private bool IsJumpAnimation;
+    private float xDirection = 1f;
+
     public bool IsPlayerGrounded;
 
     // Start is called before the first frame update
@@ -41,6 +46,7 @@ public class PlayerController2D : MonoBehaviour
     {
         RB = GetComponent<Rigidbody2D>();
         PlayerCollider = GetComponent<BoxCollider2D>();
+        animationManager = GetComponent<AnimationManager>();
     }
 
     void Update()
@@ -82,10 +88,38 @@ public class PlayerController2D : MonoBehaviour
         Move();
         Jump();
         TestButtonT();
+        UpdateAnimation();
+    }
+
+    private void UpdateAnimation()
+    {
+        if (xDirection > 0f)
+        {
+            transform.localEulerAngles = Vector3.zero;
+        }
+        else if (xDirection < 0f)
+        {
+            transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+        }
+
+        if (IsJumpAnimation)
+        {
+            animationManager.SetMovementState(MarioMovement.Jump);
+        }
+        else if (Math.Abs(RB.velocity.x) > 0)
+        {
+            animationManager.SetMovementState(MarioMovement.Run);
+        }
+        else
+        {
+            animationManager.SetMovementState(MarioMovement.Idle);
+        }
     }
 
     void Move()
     {
+
+        xDirection = Input.GetAxis("Horizontal");
 
         //Limits move speed by multiplying by 0 if velocity is over limit
         float maxSpeedLimiter = 1f;
@@ -221,8 +255,9 @@ public class PlayerController2D : MonoBehaviour
         if (JumpButtonPressed)
         {
             // When jump is pressed, always apply a minimum jump force
-            if(IsPlayerGrounded && JumpResetTimer <= 0)
+            if (IsPlayerGrounded && JumpResetTimer <= 0)
             {
+                IsJumpAnimation = true;
                 isJumping = true;
                 IsPlayerGrounded = false;
                 JumpResetTimer = JumpResetTime;
@@ -236,7 +271,7 @@ public class PlayerController2D : MonoBehaviour
                 if (RB.velocity.y < jumpForceMin + 20)
                 {
                     RB.velocity = new Vector2(RB.velocity.x, RB.velocity.y + jumpForceSustained);
-                    
+
                 }
                 jumpTimeCounter -= Time.deltaTime;
             }
@@ -342,6 +377,7 @@ public class PlayerController2D : MonoBehaviour
         if (currentGround != null)
         {
             IsPlayerGrounded = true;
+            IsJumpAnimation = false;
         }
         else
         {
@@ -361,9 +397,14 @@ public class PlayerController2D : MonoBehaviour
         }
 
         if (currentGround != null)
+        {
             IsPlayerGrounded = true;
+            IsJumpAnimation = false;
+        }
         else
+        {
             IsPlayerGrounded = false;
+        }
 
     }
 
@@ -385,6 +426,6 @@ public class PlayerController2D : MonoBehaviour
         }
     }
 
-   
+
 
 }
