@@ -42,11 +42,15 @@ public class BlockItem : MonoBehaviour
         }
 
         transform.localPosition = endPosition;
+        if (gameObject.TryGetComponent<EntityMovement>(out EntityMovement entityMovement))
+        {
+            entityMovement.direction.x = 1;
+        }
 
         rigidbody.isKinematic = false;
         physicsCollider.enabled = true;
         triggerCollider.enabled = true;
-       
+
     }
 }
 

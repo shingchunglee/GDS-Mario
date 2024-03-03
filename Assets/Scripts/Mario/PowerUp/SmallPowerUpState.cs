@@ -4,6 +4,9 @@ public class SmallPowerUpState : DefaultPowerUpState
 {
     public override void EnterState(PowerUpStateManager stateManager)
     {
+
+        stateManager.GetComponent<BoxCollider2D>().size = new Vector2(1f, 1f);
+        stateManager.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0f);
         stateManager.animationManager.SetPowerUpState(MarioPowerUp.Small);
     }
 
@@ -23,6 +26,10 @@ public class SmallPowerUpState : DefaultPowerUpState
 
     internal override void OnCollideGoomba(PowerUpStateManager stateManager, GameObject goomba, bool isStomping)
     {
+        if (goomba.GetComponent<Goomba_Stomp>().isFlat)
+        {
+            return;
+        }
         if (isStomping)
         {
             // TODO: Kill Goomba
@@ -39,7 +46,7 @@ public class SmallPowerUpState : DefaultPowerUpState
 
     internal override void OnCollideKoopa(PowerUpStateManager stateManager, GameObject koopa, bool isStomping)
     {
-        if (isStomping)
+        if (isStomping || koopa.GetComponent<Koopa_Shell>().isEnteredShell)
         {
             koopa.GetComponent<Koopa_Shell>().onStomp();
             Rigidbody2D rigidbody2D = stateManager.gameObject.GetComponent<Rigidbody2D>();

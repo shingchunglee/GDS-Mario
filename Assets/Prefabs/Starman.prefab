@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5683217983365707253}
   - component: {fileID: 5341437883300139645}
   - component: {fileID: 4771107495599953624}
+  - component: {fileID: 6596418457146710372}
   m_Layer: 8
   m_Name: Starman
   m_TagString: Untagged
@@ -224,3 +225,18 @@ MonoBehaviour:
   speed: 2
   direction: {x: 1, y: 0}
   velocity: {x: 0, y: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &6596418457146710372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522365024606346846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16eb572b50c83fd4fab92b747efe0416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

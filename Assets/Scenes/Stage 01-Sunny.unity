@@ -2348,6 +2348,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bricks (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 5831175148428737354, guid: 40ceab5876aface43b3c17d61c3cf0a7, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 522365024606346846, guid: 13c9aa2d2e0c345508b6878da1ba3420, type: 3}
     - target: {fileID: 6838544509304160822, guid: 40ceab5876aface43b3c17d61c3cf0a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 84.58
@@ -3451,6 +3455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mystery Block (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5831175148428737354, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 8050619911287564955, guid: 5759caa1bcc7a4998915ffba861919d5, type: 3}
     - target: {fileID: 6838544509304160822, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 61.54
@@ -4228,6 +4236,7 @@ MonoBehaviour:
   ResetScreen: {fileID: 1564498080}
   gameOver: {fileID: 1682086607}
   lifeText: {fileID: 722323866}
+  targetFrameRate: 30
 --- !u!4 &601032299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6838544509304160822, guid: 40ceab5876aface43b3c17d61c3cf0a7, type: 3}
@@ -6714,6 +6723,10 @@ PrefabInstance:
       value: Bricks (15)
       objectReference: {fileID: 0}
     - target: {fileID: 5831175148428737354, guid: 40ceab5876aface43b3c17d61c3cf0a7, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 1141207463333114513, guid: 6525ed58054564fd497e070d3b60ff7d, type: 3}
+    - target: {fileID: 5831175148428737354, guid: 40ceab5876aface43b3c17d61c3cf0a7, type: 3}
       propertyPath: emptyBlock
       value: 
       objectReference: {fileID: 21300000, guid: 0c057401fbf74454fa3032deae7f0a61, type: 3}
@@ -8045,6 +8058,10 @@ PrefabInstance:
     - target: {fileID: 2811313700263578143, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
       propertyPath: m_Name
       value: Mystery Block (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831175148428737354, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
+      propertyPath: item
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5831175148428737354, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
       propertyPath: maxHits
@@ -17019,7 +17036,7 @@ PrefabInstance:
     - target: {fileID: 5831175148428737354, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8050619911287564955, guid: 5759caa1bcc7a4998915ffba861919d5, type: 3}
     - target: {fileID: 5831175148428737354, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
       propertyPath: maxHits
       value: 1
@@ -19887,6 +19904,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mystery Block (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5831175148428737354, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 8050619911287564955, guid: 5759caa1bcc7a4998915ffba861919d5, type: 3}
     - target: {fileID: 6838544509304160822, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 91.66

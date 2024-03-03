@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EntityMovement : MonoBehaviour
 {
-  public float speed = 1f;
+  public float speed = 2f;
   public Vector2 direction = Vector2.right;
 
   private new Rigidbody2D rigidbody;
