@@ -6,7 +6,7 @@ public class Enemy_Movement : MonoBehaviour
 {
     public float speed = 1f;
     public Vector2 direction = Vector2.left;
-    
+
     private Rigidbody2D e_rigidbody;
     private Vector2 velocity;
 
@@ -43,12 +43,23 @@ public class Enemy_Movement : MonoBehaviour
 
         e_rigidbody.MovePosition(e_rigidbody.position + velocity * Time.fixedDeltaTime);
 
-        if (e_rigidbody.Raycast(direction)) {
+        if (e_rigidbody.Raycast(direction))
+        {
             direction = -direction;
         }
 
-        if (e_rigidbody.Raycast(Vector2.down)) {
+        if (e_rigidbody.Raycast(Vector2.down))
+        {
             velocity.y = Mathf.Max(velocity.y, 0f);
+        }
+
+        if (direction.x > 0f)
+        {
+            transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+        }
+        else if (direction.x < 0f)
+        {
+            transform.localEulerAngles = Vector3.zero;
         }
     }
 }
