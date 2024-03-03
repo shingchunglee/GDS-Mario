@@ -50,7 +50,20 @@ public class InvincibleState : DefaultPowerUpState
     if (isStomping)
     {
       // TODO: Kill Goomba
-      Debug.Log("Kill Goomba");
+      goomba.GetComponent<Goomba_Stomp>().Flatten();
+      Rigidbody2D rigidbody2D = stateManager.gameObject.GetComponent<Rigidbody2D>();
+      rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 3f);
+      return;
+    }
+  }
+
+  internal override void OnCollideKoopa(PowerUpStateManager stateManager, GameObject koopa, bool isStomping)
+  {
+    if (isStomping || koopa.GetComponent<Koopa_Shell>().isEnteredShell)
+    {
+      koopa.GetComponent<Koopa_Shell>().onStomp();
+      Rigidbody2D rigidbody2D = stateManager.gameObject.GetComponent<Rigidbody2D>();
+      rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 5f);
       return;
     }
   }
