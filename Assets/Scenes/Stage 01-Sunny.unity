@@ -2362,6 +2362,10 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 522365024606346846, guid: 13c9aa2d2e0c345508b6878da1ba3420, type: 3}
+    - target: {fileID: 5831175148428737354, guid: 40ceab5876aface43b3c17d61c3cf0a7, type: 3}
+      propertyPath: maxHits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6838544509304160822, guid: 40ceab5876aface43b3c17d61c3cf0a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 84.58
@@ -3335,6 +3339,14 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 8050619911287564955, guid: 5759caa1bcc7a4998915ffba861919d5, type: 3}
+    - target: {fileID: 5831175148428737354, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
+      propertyPath: maxHits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831175148428737354, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
+      propertyPath: emptyBlock
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c057401fbf74454fa3032deae7f0a61, type: 3}
     - target: {fileID: 6838544509304160822, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 61.54
@@ -6459,6 +6471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerMario
       objectReference: {fileID: 0}
+    - target: {fileID: 4279470580161185205, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
+      propertyPath: m_SurfaceArc
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 8371216688568173419, guid: b2de2987ffe8b4c869b7b9b5a4389cc5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.07
@@ -6681,6 +6697,10 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 1141207463333114513, guid: 6525ed58054564fd497e070d3b60ff7d, type: 3}
+    - target: {fileID: 5831175148428737354, guid: 40ceab5876aface43b3c17d61c3cf0a7, type: 3}
+      propertyPath: maxHits
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5831175148428737354, guid: 40ceab5876aface43b3c17d61c3cf0a7, type: 3}
       propertyPath: emptyBlock
       value: 
@@ -8808,7 +8828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572938860624964459, guid: a93db0578eb2abe4faa7e559fad6e797, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6443775792152886550, guid: a93db0578eb2abe4faa7e559fad6e797, type: 3}
       propertyPath: m_Camera
@@ -20272,6 +20292,14 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 8050619911287564955, guid: 5759caa1bcc7a4998915ffba861919d5, type: 3}
+    - target: {fileID: 5831175148428737354, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
+      propertyPath: maxHits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831175148428737354, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
+      propertyPath: emptyBlock
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c057401fbf74454fa3032deae7f0a61, type: 3}
     - target: {fileID: 6838544509304160822, guid: 67d484adbb82d364e9515e18a639ece2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 91.66
