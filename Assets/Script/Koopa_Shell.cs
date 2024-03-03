@@ -8,7 +8,7 @@ public class Koopa_Shell : MonoBehaviour
 {
     public Sprite shellSprite;
 
-    private bool isEnteredShell = false;
+    public bool isEnteredShell = false;
 
 
     // private void OnCollisionEnter2D(Collision2D km_collision) 
@@ -37,7 +37,6 @@ public class Koopa_Shell : MonoBehaviour
         {
             StartCoroutine(KickShell());
         }
-        isEnteredShell = true;
     }
 
     private IEnumerator KickShell()
@@ -56,7 +55,7 @@ public class Koopa_Shell : MonoBehaviour
 
     private void EnterShell()
     {
-
+        isEnteredShell = true;
         GetComponent<Enemy_Movement>().enabled = false;
         GetComponent<Goomba_AnimatedSprite>().enabled = false;
         GetComponent<SpriteRenderer>().sprite = shellSprite;

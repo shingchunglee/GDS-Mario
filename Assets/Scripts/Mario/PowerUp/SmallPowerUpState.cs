@@ -39,7 +39,7 @@ public class SmallPowerUpState : DefaultPowerUpState
 
     internal override void OnCollideKoopa(PowerUpStateManager stateManager, GameObject koopa, bool isStomping)
     {
-        if (isStomping)
+        if (isStomping || koopa.GetComponent<Koopa_Shell>().isEnteredShell)
         {
             koopa.GetComponent<Koopa_Shell>().onStomp();
             Rigidbody2D rigidbody2D = stateManager.gameObject.GetComponent<Rigidbody2D>();
