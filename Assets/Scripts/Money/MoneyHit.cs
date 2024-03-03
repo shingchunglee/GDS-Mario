@@ -6,11 +6,16 @@ using UnityEngine;
 public class MoneyHit : MonoBehaviour
 {
     public static GameManager Inst;
+     private AudioSource audioSource;
 
     // Start is called before the first frame update
     private  void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         GameManager.Inst.AddCoins();
+        audioSource.Play();
+
+
         StartCoroutine(Animate());
 
         
