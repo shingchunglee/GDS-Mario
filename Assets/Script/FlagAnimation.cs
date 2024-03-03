@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class FlagAnimation : MonoBehaviour
 {
@@ -11,7 +10,6 @@ public class FlagAnimation : MonoBehaviour
     public float speed = 6f;
     public int nextWorld = 1;
     public int nextStage = 1;
-    public int enterGameIndex = 0;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -35,12 +33,12 @@ public class FlagAnimation : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        SceneManager.LoadScene(enterGameIndex);
+        //GameManager.Instance.LoadLevel(nextWorld, nextStage);
     }
 
     private IEnumerator MoveTo(Transform subject, Vector3 position)
     {
-        while (Vector3.Distance(subject.position, position) > 0.2f)
+        while (Vector3.Distance(subject.position, position) > 0.115f)
         {
             subject.position = Vector3.MoveTowards(subject.position, position, speed * Time.deltaTime);
             yield return null;

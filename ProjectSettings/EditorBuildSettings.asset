@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage 01-Sunny.unity
     guid: dcff5a99748097148b4a1fbc4322d916
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Ruvini.unity
     guid: f3e6b1c2e067042bc9f3d689b72fe033
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MitchScene.unity
     guid: 439abf71e6f0b48e6908d52de022e14c
   m_configObjects: {}
